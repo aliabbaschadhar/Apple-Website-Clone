@@ -56,7 +56,8 @@ function Model() {
 
 						<ModelView
 							index={2}
-							groupRef={large}
+							gqq
+							roupRef={large}
 							gsapType="view2"
 							controlRef={cameraControlLarge}
 							setRotationState={setLargeRotation}
@@ -74,10 +75,20 @@ function Model() {
 								right: 0,
 								overflow: "hidden",
 							}}
-							eventSource={document.getElementById("root")}
+							//In the context of React Three Fiber (R3F), which is a React renderer for Three.js, the event.source typically refers to the source of an event that has been triggered within the 3D scene.
+							// This is part of the event handling system that R3F provides to manage user interactions like clicks, drags, hovers, etc., on 3D objects.
+
+							//Events in R3F: When an event occurs (like a mouse click or hover) on a 3D object, R3F provides an event object to the event handler function. This event object contains various properties, such as:
+
+							//object: The 3D object that received the event.
+							//point: The point in 3D space where the event occurred.
+							//event: The original DOM event.
+
+							eventSource={document.getElementById("root")} //Useful when we want to intrect with model
 						>
 							//View port is used to render multiple views of the
-							model in the same Canvas
+							model in the same Canvas which will allow us to
+							animate the model
 							<View.Port />
 						</Canvas>
 					</div>
