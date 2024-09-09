@@ -15,7 +15,7 @@ function ModelView({
 	groupRef,
 	gsapType,
 	controlRef,
-	setRotationSize,
+	setRotationState,
 	size,
 	item,
 }) {
@@ -23,10 +23,10 @@ function ModelView({
 		<View
 			index={index}
 			id={gsapType}
-			className={` w-full h-full ${index === 2} ? 'right-[-100%]' : '' `}
+			className={` w-full h-full absolute ${index === 2 ? "right-[-100%]" : ""} `}
 		>
 			{/* Ambient Light --> It will light up the all the objects in the Canvas with same light */}
-			<ambientLight intensity={0.3} />
+			<ambientLight intensity={5} />
 			//Now we will use the camera that will simulate the perspective of
 			viwer which PerspectiveCamera
 			<PerspectiveCamera makeDefault position={[0, 0, 4]} />

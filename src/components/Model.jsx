@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ModelView } from "./index";
 import { yellowImg } from "../utils";
 
@@ -8,6 +8,7 @@ import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import { models, sizes } from "../constants";
+import { animateWithGsapTimeline } from "../utils/animations";
 
 function Model() {
 	//As we have two 3d model iphones so
@@ -30,6 +31,41 @@ function Model() {
 	//rotation
 	const [smallRotation, setSmallRotation] = useState(0);
 	const [largeRotation, setLargeRotation] = useState(0);
+
+	//To Show the small or lage model if we want by changing rotation state.
+
+	const tl = gsap.timeline();
+
+	useEffect(() => {
+		if (size === "large") {
+			animateWithGsapTimeline(
+				tl,
+				small,
+				smallRotation,
+				"#view1",
+				"#view2",
+				{
+					//You'll wandring why we passed small in large model if statement? Becz we ll be chaging the model from large to small, at first the model with be large but then we'll animate/change it from large to small
+					transform: "translateX(-100%)",
+					duration: 2,
+				}
+			);
+		}
+
+		if (size === "small") {
+			animateWithGsapTimeline(
+				tl,
+				large,
+				largeRotation,
+				"#view2",
+				"#view1",
+				{
+					transform: "translateX(0)",
+					duration: 2,
+				}
+			);
+		}
+	}, [size]);
 
 	useGSAP(() => {
 		gsap.to("#heading", { y: 0, opacity: 1 });
