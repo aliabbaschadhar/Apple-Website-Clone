@@ -7,6 +7,7 @@ import ModelView from "./ModelView";
 import Lights from "./Lights";
 import IPhone from "./IPhone";
 import Loader from "./Loader";
+import Features from "./Features";
 
 export {
 	Navbar,
@@ -18,4 +19,5 @@ export {
 	Lights,
 	IPhone,
 	Loader,
+	Features,
 };
