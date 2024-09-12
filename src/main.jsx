@@ -3,6 +3,12 @@ import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./App.jsx";
 import "./index.css";
+import {
+	createBrowserRouter,
+	RouterProvider,
+	createRoutesFromElements,
+	Route,
+} from "react-router-dom";
 
 import * as Sentry from "@sentry/react";
 
@@ -26,6 +32,14 @@ Sentry.init({
 	replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
 	replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
 });
+
+//Creating Routers
+
+// const router = createBrowserRouter(
+// 	createRoutesFromElements(
+// 		<Route path="/" element={}></Route>
+// 	)
+// )
 
 const root = createRoot(document.getElementById("root"));
 root.render(
