@@ -8,6 +8,8 @@ import Lights from "./Lights";
 import IPhone from "./IPhone";
 import Loader from "./Loader";
 import Features from "./Features";
+import HowItWorks from "./HowItWorks";
+import Footer from "./Footer";
 
 export {
 	Navbar,
@@ -20,4 +22,6 @@ export {
 	IPhone,
 	Loader,
 	Features,
+	HowItWorks,
+	Footer,
 };
